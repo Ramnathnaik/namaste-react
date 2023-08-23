@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Namaste React</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+  </head>
+  <body>
+    <h1>Hello World from HTML</h1>
+    <div id="root"></div>
+
+    <!-- Creating H1 by using JS -->
+    <script>
+      const h1 = document.createElement("h1");
+      h1.innerHTML = "Hello World from JS";
+      const root1 = document.getElementById("root");
+      root1.appendChild(h1);
+    </script>
+
+    <!-- Creating H1 using React Library -->
+    <!-- <script>
+      const heading = React.createElement('h1', {}, 'Hello World by React');
+      const root = ReactDOM.createRoot(document.getElementById('root'));
+      root.render(heading);
+    </script> -->
+
+    <script src="./app.js"></script>
+  </body>
+</html>

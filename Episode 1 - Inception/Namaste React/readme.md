@@ -57,3 +57,21 @@ const parent = React.createElement("div", { id: "parent" }, [
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(parent);
 ```
+
+## Configuring remote repo to local project
+
+1. Init git
+
+- In cmd, we first need to initialize the git.
+- > git init
+
+2. Create a main branch (as the local repo would have the <b>main</b> branch as <b>master</b>)
+
+- > git branch -M main
+
+3. Push code
+
+- > git add .
+- > git commit -m "Comment"
+- > git remote add origin {link}
+- > git push origin main

@@ -1,0 +1,18 @@
+{
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "This is the 2nd episode project of namaste react",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Ramanath K P",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.9.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

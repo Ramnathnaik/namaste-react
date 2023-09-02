@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    margin: 0;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    margin-left: 20px;
+}
+
+.nav-items > ul {
+    display: flex;
+    list-style-type: none;
+    margin-right: 20px;
+}
+
+.nav-items > ul > li {
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.search {
+    margin: 20px;
+}
+
+.resturant-container {
+    margin: 0 50px 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.resturant-card {
+    width: 275px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 10px 10px 20px;
+    border-radius: 20px;
+    margin: 10px 15px;
+}
+
+.resturant-card:hover {
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.food-img {
+    width: 100%;
+    height: 200px;
+    border-radius: 20px;
+}
+
+.rating-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.rating-img {
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+}

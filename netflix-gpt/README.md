@@ -33,3 +33,50 @@ npx create-react-app netflix-gpt
 - NetflixGPT
   - Search bar
   - Movie suggestions
+
+## useRef() Hook
+
+- useRef() hook is used to get the reference of a element present in a component.
+
+```jsx
+import { useRef } from "react";
+
+const email = useRef(null); //Intialization
+
+const nameValue = name.current.value; //Get current value
+
+const app = (
+  <input
+    ref={email} //referring to the element
+    className="p-4 m-4 bg-gray-800"
+    type="email"
+    name="email"
+    id="email"
+    placeholder="Email Address"
+  />
+);
+```
+
+## Authentication with Firebase
+
+1. Setup a firebase account.
+2. Create a project in firebase.
+3. Register the app.
+4. Add firebase SDK
+
+- npm install firebase
+- Add firebase.js config file (Provided by firebase)
+
+5. Install firebase CLI
+
+- npm install -g firebase-tools
+
+6. Deploy to firebase hosting
+
+- firebase login
+- firebase init
+- npm run build
+- firebase deploy
+
+7. Enable Authenctication from firebase.
+8. Setup the Sign up and Sign In APIs using firebase docs.

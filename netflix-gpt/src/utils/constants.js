@@ -6,3 +6,14 @@ export const NETFLIX_BACKGROUND_IMG =
 
 export const PROFILE_IMG =
   "https://occ-0-1492-3663.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABbg8b9gDW0a4RN42JzXExXzjVU1EnPFfRBh0CpUQMcu_nm6Qwk5NRIkIxLoG8I-2JRU_dt_KvqdkT3a7eTWwBv0DgbvaCZA.png?r=54a";
+
+export const API_OPTIONS = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjYmU2NDM1NDkxZjhiOGUyMDgzMmVjMmUxNzQ1YWM0MCIsInN1YiI6IjVmZmFlNzUwMjBhZjc3MDAzZjFhNmMzYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.u1wF8pZxSaq_8VNqLM2uFaSGk5bHu4sfkFTFv-e6Kd8",
+  },
+};
+
+export const TMDB_API = "https://api.themoviedb.org/3/movie";

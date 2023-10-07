@@ -1,12 +1,16 @@
 import React, { useRef, useState } from "react";
 import Header from "./Header";
-import { NETFLIX_BACKGROUND_IMG } from "../utils/constants";
+import { NETFLIX_BACKGROUND_IMG, PROFILE_IMG } from "../utils/constants";
 import { validateSignInForm, validateSignUpForm } from "../utils/validate";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
 
 const Login = () => {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -14,6 +18,8 @@ const Login = () => {
   const email = useRef(null);
   const password = useRef(null);
   const name = useRef(null);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleForm = () => {
     setIsSignIn(!isSignIn);
@@ -32,11 +38,10 @@ const Login = () => {
       signInWithEmailAndPassword(auth, emailValue, passwordValue)
         .then((userCredential) => {
           // Signed in
-          const user = userCredential.user;
-          // ...
+          // const user = userCredential.user;
         })
         .catch((error) => {
-          const errorCode = error.code;
+          // const errorCode = error.code;
           const errorMessage = error.message;
           setErrorMessage(errorMessage);
         });
@@ -49,12 +54,28 @@ const Login = () => {
       //Signup
       createUserWithEmailAndPassword(auth, emailValue, passwordValue)
         .then((userCredential) => {
-          // Signed up
-          const user = userCredential.user;
-          // ...
+          updateProfile(auth.currentUser, {
+            displayName: nameValue,
+            photoURL: PROFILE_IMG,
+          })
+            .then(() => {
+              // Profile updated!
+              dispatch(
+                addUser({
+                  uid: auth.currentUser.uid,
+                  email: auth.currentUser.email,
+                  displayName: auth.currentUser.displayName,
+                  photoURL: auth.currentUser.photoURL,
+                })
+              );
+            })
+            .catch((error) => {
+              const errorMessage = error.message;
+              setErrorMessage(errorMessage);
+            });
         })
         .catch((error) => {
-          const errorCode = error.code;
+          // const errorCode = error.code;
           const errorMessage = error.message;
           setErrorMessage(errorMessage);
         });

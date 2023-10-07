@@ -80,3 +80,19 @@ const app = (
 
 7. Enable Authenctication from firebase.
 8. Setup the Sign up and Sign In APIs using firebase docs.
+9. Subscribing to the onAuthStateChange() to check whether signed in or not.
+
+## Navigating through code
+
+- We can use useNavigate() hook to navigate from one component to another.
+
+```javascript
+import { useNavigate } from "react-router-dom";
+
+const navigate = useNavigate();
+navigate("/browse");
+```
+
+# Episode 15 - NetflixGPT - Building the core
+
+- We need to unsubscribe to the onAuthStateChange() event in the useEffect().

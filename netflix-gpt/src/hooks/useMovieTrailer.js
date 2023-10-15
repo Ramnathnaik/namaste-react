@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { API_OPTIONS, TMDB_API } from "../utils/constants";
 import { useEffect } from "react";
 import { addTrailer } from "../utils/moviesSlice";

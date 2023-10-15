@@ -12,11 +12,27 @@ export const API_OPTIONS = {
   headers: {
     accept: "application/json",
     // Authorization: `Bearer ${process.env.API_READ_ACCESS_TOKEN}`
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjYmU2NDM1NDkxZjhiOGUyMDgzMmVjMmUxNzQ1YWM0MCIsInN1YiI6IjVmZmFlNzUwMjBhZjc3MDAzZjFhNmMzYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.u1wF8pZxSaq_8VNqLM2uFaSGk5bHu4sfkFTFv-e6Kd8",
+    Authorization: `Bearer ${process.env.REACT_APP_API_ACCESS_TOKEN}`,
   },
 };
 
 export const TMDB_API = "https://api.themoviedb.org/3/movie";
 
+export const TMDB_SEARCH_API = "https://api.themoviedb.org/3/search/movie";
+
 export const TMDB_IMG_PATH = "https://image.tmdb.org/t/p/w500";
+
+export const languageConstants = [
+  {
+    code: "en",
+    language: "English",
+  },
+  {
+    code: "hi",
+    language: "Hindi",
+  },
+  {
+    code: "kan",
+    language: "Kannada",
+  },
+];

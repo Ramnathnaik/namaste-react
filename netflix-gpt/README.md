@@ -96,3 +96,45 @@ navigate("/browse");
 # Episode 15 - NetflixGPT - Building the core
 
 - We need to unsubscribe to the onAuthStateChange() event in the useEffect().
+- We will be using TMDB API for getting the movies details
+
+## TMDB API
+
+- Create an account in TMDB.
+- Create an API key.
+- Use the relavent APIs.
+
+## React.StrictMode
+
+- The network call will happen twice in this mode.
+- This happens only in dev.
+- React does this to find the inconsistancy in our project.
+
+## Build the relavent components
+
+- Use the redux toolkit for state management.
+
+# Episode 16 - NetflixGPT - Wrapping up
+
+## Build the GPT Search page
+
+- Use Open AI API key to build the search.
+
+Note: <></> this is react fragment.
+
+## Build multiple language pages
+
+## Add GPT Features to the app
+
+Note: For using env we need to add <b>REACT*APP*</b> for env variables.
+
+## Understanding memoization
+
+- If the data is already present and it can be used, we should not make API call to fetch the data again.
+
+## Making the app responsive using tailwind
+
+- By default all the styling will be applied to mobile devices.
+- If we want to make it tab and desktop, add:
+  - sm: -> For Tab
+  - md: -> For Desktop

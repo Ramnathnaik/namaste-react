@@ -6,7 +6,7 @@ const SecondaryContainer = () => {
   const movies = useSelector((store) => store.movies);
 
   return (
-    <div className="bg-gradient-to-b from-transparent to-black to-5% relative -my-44">
+    <div className="bg-black md:bg-gradient-to-b md:from-transparent md:to-black md:to-5% relative -my-0 md:-my-44">
       <MovieList title={"Now Playing"} movies={movies.nowPlaying} />
       <MovieList title={"Popular"} movies={movies.popular} />
       <MovieList title={"Upcoming"} movies={movies.upcoming} />

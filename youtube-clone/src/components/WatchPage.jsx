@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { DEFAULT_CHANNEL_LOGO, VIDEO_DETAILS_API } from "../utils/constants";
 import CommentsList from "./CommentsList";
+import Recomendations from "./Recomendations";
 
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
@@ -23,51 +24,58 @@ const WatchPage = () => {
 
   useEffect(() => {
     getVideoDetails();
-  }, []);
+  }, [videoId]);
 
   return (
-    <div className="m-4 col-span-8">
-      <iframe
-        width="1000"
-        height="500"
-        src={"https://www.youtube.com/embed/" + videoId + "?autoplay=1&mute=1"}
-        title="YouTube video player"
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowFullScreen
-      ></iframe>
-      <div className="w-full m-2">
-        <h1 className="font-semibold text-xl my-2">{videoDetails.title}</h1>
-        <div className="flex items-center">
-          <img
-            className="w-12"
-            src={DEFAULT_CHANNEL_LOGO}
-            alt="default-channel-logo"
-          />
-          <p className="font-semibold my-2">{videoDetails.channelTitle}</p>
-        </div>
-        <div
-          className={
-            !seeMore
-              ? "h-36 my-2 text-sm px-6 py-4 bg-slate-100 rounded-xl hover:bg-slate-200"
-              : "h-full my-2 text-sm px-6 py-4 bg-slate-100 rounded-xl"
+    <>
+      <div className="m-4 col-span-8">
+        <iframe
+          width="1000"
+          height="500"
+          src={
+            "https://www.youtube.com/embed/" + videoId + "?autoplay=1&mute=1"
           }
-        >
-          <div className="h-3/4 overflow-hidden">
-            <p className="whitespace-pre-wrap">{videoDetails.description}</p>
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        ></iframe>
+        <div className="w-full m-2">
+          <h1 className="font-semibold text-xl my-2">{videoDetails.title}</h1>
+          <div className="flex items-center">
+            <img
+              className="w-12"
+              src={DEFAULT_CHANNEL_LOGO}
+              alt="default-channel-logo"
+            />
+            <p className="font-semibold my-2">{videoDetails.channelTitle}</p>
           </div>
-          <div className="flex justify-end">
-            <button
-              className="font-semibold cursor-pointer"
-              onClick={() => setSeeMore(!seeMore)}
-            >
-              {seeMore ? "Show less.." : "See more.."}
-            </button>
+          <div
+            className={
+              !seeMore
+                ? "h-36 my-2 text-sm px-6 py-4 bg-slate-100 rounded-xl hover:bg-slate-200"
+                : "h-full my-2 text-sm px-6 py-4 bg-slate-100 rounded-xl"
+            }
+          >
+            <div className="h-3/4 overflow-hidden">
+              <p className="whitespace-pre-wrap">{videoDetails.description}</p>
+            </div>
+            <div className="flex justify-end">
+              <button
+                className="font-semibold cursor-pointer"
+                onClick={() => setSeeMore(!seeMore)}
+              >
+                {seeMore ? "Show less.." : "See more.."}
+              </button>
+            </div>
           </div>
         </div>
+        <CommentsList videoId={videoId} />
       </div>
-      <CommentsList videoId={videoId} />
-    </div>
+      <div className="col-span-4 mt-2">
+        <Recomendations />
+      </div>
+    </>
   );
 };
 

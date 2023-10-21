@@ -13,9 +13,15 @@ const CommentsList = ({ videoId }) => {
 
   useEffect(() => {
     getComments();
-  }, []);
+  }, [videoId]);
 
-  if (comments.length === 0) {
+  if (comments && comments.length === 0) {
+    return (
+      <div className="w-full">
+        <p>No comments</p>
+      </div>
+    );
+  } else if (!comments) {
     return (
       <div className="w-full">
         <p>No comments</p>

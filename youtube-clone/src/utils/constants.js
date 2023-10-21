@@ -13,3 +13,6 @@ export const COMMENTS_API =
   "https://www.googleapis.com/youtube/v3/commentThreads?textFormat=plainText&part=snippet&&maxResults=50&key=" +
   process.env.REACT_APP_YOUTUBE_API_KEY +
   "&videoId=";
+export const RECOMMENDED_VIDEOS =
+  "https://youtube.googleapis.com/youtube/v3/search?part=snippet&location=20.5937%2C78.9629&locationRadius=10mi&q=fun%20%and%20%entertaining%20%adventures&type=video&maxResults=25&key=" +
+  process.env.REACT_APP_YOUTUBE_API_KEY;

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { DEFAULT_CHANNEL_LOGO, VIDEO_DETAILS_API } from "../utils/constants";
+import CommentsList from "./CommentsList";
 
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
@@ -65,6 +66,7 @@ const WatchPage = () => {
           </div>
         </div>
       </div>
+      <CommentsList videoId={videoId} />
     </div>
   );
 };

@@ -9,3 +9,7 @@ export const VIDEO_DETAILS_API =
   "https://www.googleapis.com/youtube/v3/videos?part=id%2C+snippet&id=";
 export const DEFAULT_CHANNEL_LOGO =
   "https://static.vecteezy.com/system/resources/previews/023/986/480/original/youtube-logo-youtube-logo-transparent-youtube-icon-transparent-free-free-png.png";
+export const COMMENTS_API =
+  "https://www.googleapis.com/youtube/v3/commentThreads?textFormat=plainText&part=snippet&&maxResults=50&key=" +
+  process.env.REACT_APP_YOUTUBE_API_KEY +
+  "&videoId=";

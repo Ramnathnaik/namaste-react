@@ -5,6 +5,7 @@ import { DEFAULT_CHANNEL_LOGO, VIDEO_DETAILS_API } from "../utils/constants";
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
   const [videoDetails, setVideoDetails] = useState({});
+  const [seeMore, setSeeMore] = useState(false);
   const videoId = searchParams.get("v");
 
   const getVideoDetails = async () => {
@@ -44,8 +45,24 @@ const WatchPage = () => {
           />
           <p className="font-semibold my-2">{videoDetails.channelTitle}</p>
         </div>
-        <div className="h-36 overflow-y-auto my-2 text-sm p-2 bg-slate-100 rounded-xl">
-          <p className="whitespace-pre-wrap">{videoDetails.description}</p>
+        <div
+          className={
+            !seeMore
+              ? "h-36 my-2 text-sm px-6 py-4 bg-slate-100 rounded-xl hover:bg-slate-200"
+              : "h-full my-2 text-sm px-6 py-4 bg-slate-100 rounded-xl"
+          }
+        >
+          <div className="h-3/4 overflow-hidden">
+            <p className="whitespace-pre-wrap">{videoDetails.description}</p>
+          </div>
+          <div className="flex justify-end">
+            <button
+              className="font-semibold cursor-pointer"
+              onClick={() => setSeeMore(!seeMore)}
+            >
+              {seeMore ? "Show less.." : "See more.."}
+            </button>
+          </div>
         </div>
       </div>
     </div>

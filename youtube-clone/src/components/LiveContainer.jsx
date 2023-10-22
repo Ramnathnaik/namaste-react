@@ -1,15 +1,14 @@
 import React, { useEffect } from "react";
-import ButtonList from "./ButtonList";
-import VideoContainer from "./VideoContainer";
 import { useDispatch } from "react-redux";
-import { addCategoryId, openMenu } from "../utils/appSlice";
+import { openMenu } from "../utils/appSlice";
+import ButtonList from "./ButtonList";
+import LiveVideoContainer from "./LiveVideoContainer";
 
-const MainContainer = () => {
+const LiveContainer = () => {
   const dispatch = useDispatch();
 
   const openMenubar = () => {
     dispatch(openMenu());
-    dispatch(addCategoryId("-1"));
   };
 
   useEffect(() => {
@@ -19,9 +18,9 @@ const MainContainer = () => {
   return (
     <div className="col-span-10">
       <ButtonList />
-      <VideoContainer />
+      <LiveVideoContainer />
     </div>
   );
 };
 
-export default MainContainer;
+export default LiveContainer;

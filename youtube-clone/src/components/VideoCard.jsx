@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import CellTowerIcon from "@mui/icons-material/CellTower";
 
 const VideoCard = ({ snippet, statistics }) => {
   const menu = useSelector((store) => store.app.menu);
@@ -7,7 +8,8 @@ const VideoCard = ({ snippet, statistics }) => {
   const title = snippet.title;
   const tumbnail = snippet.thumbnails.medium.url;
   const channelTitle = snippet.channelTitle;
-  const viewCount = statistics.viewCount;
+  const viewCount = statistics?.viewCount;
+  const liveBroadcastContent = snippet?.liveBroadcastContent;
 
   return (
     <div
@@ -17,11 +19,19 @@ const VideoCard = ({ snippet, statistics }) => {
           : "m-2 shadow-lg w-72 rounded-xl cursor-pointer hover:shadow-2xl"
       }
     >
-      <img
-        className="rounded-t-xl w-full"
-        src={tumbnail}
-        alt="youtube-tumbnail"
-      />
+      <div>
+        <img
+          className="rounded-t-xl w-full"
+          src={tumbnail}
+          alt="youtube-tumbnail"
+        />
+        {liveBroadcastContent === "live" && (
+          <p className="relative z-10 bg-red-600 p-1 text-white">
+            <CellTowerIcon />
+            &nbsp;Live
+          </p>
+        )}
+      </div>
       <div className="px-4 py-2">
         <p className="font-semibold line-clamp-2">{title}</p>
         <p className="text-gray-500">{channelTitle}</p>

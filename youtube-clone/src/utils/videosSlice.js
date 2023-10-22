@@ -5,6 +5,8 @@ const videosSlice = createSlice({
   initialState: {
     homeVideos: null,
     recommendedVideos: null,
+    liveVideos: null,
+    categoryVideos: null,
   },
   reducers: {
     addHomeVideos: (state, action) => {
@@ -13,9 +15,20 @@ const videosSlice = createSlice({
     addRecommendedVideos: (state, action) => {
       state.recommendedVideos = action.payload;
     },
+    addLiveVideos: (state, action) => {
+      state.liveVideos = action.payload;
+    },
+    addCategoryVideos: (state, action) => {
+      state.categoryVideos = action.payload;
+    },
   },
 });
 
-export const { addHomeVideos, addRecommendedVideos } = videosSlice.actions;
+export const {
+  addHomeVideos,
+  addRecommendedVideos,
+  addLiveVideos,
+  addCategoryVideos,
+} = videosSlice.actions;
 
 export default videosSlice.reducer;

@@ -1,21 +1,23 @@
 import React from "react";
-import useYoutubeVideos from "../hooks/useYoutubeVideos";
+import useLiveVideos from "../hooks/useLiveVideos";
 import { useDispatch, useSelector } from "react-redux";
-import VideoCard from "./VideoCard";
 import { Link } from "react-router-dom";
 import { closeMenu } from "../utils/appSlice";
+import VideoCard from "./VideoCard";
+import { clearChats } from "../utils/chatSlice";
 import { ShimmerPostList } from "react-shimmer-effects";
 
-const VideoContainer = () => {
-  useYoutubeVideos();
-  const homeVideos = useSelector((store) => store.videos.homeVideos);
+const LiveVideoContainer = () => {
+  useLiveVideos();
+  const liveVideos = useSelector((store) => store.videos.liveVideos);
   const dispatch = useDispatch();
 
   const closeMenubar = () => {
     dispatch(closeMenu());
+    dispatch(clearChats());
   };
 
-  if (!homeVideos)
+  if (!liveVideos)
     return (
       <div className="col-span-10 m-4">
         <ShimmerPostList postStyle="STYLE_FOUR" col={3} row={2} gap={30} />
@@ -24,8 +26,12 @@ const VideoContainer = () => {
 
   return (
     <div className="flex flex-wrap">
-      {homeVideos.map((video) => (
-        <Link to={"/watch?v=" + video.id} key={video.id} onClick={closeMenubar}>
+      {liveVideos.map((video) => (
+        <Link
+          to={"/watch?v=" + video.id.videoId}
+          key={video.id.videoId}
+          onClick={closeMenubar}
+        >
           <VideoCard snippet={video.snippet} statistics={video.statistics} />
         </Link>
       ))}
@@ -33,4 +39,4 @@ const VideoContainer = () => {
   );
 };
 
-export default VideoContainer;
+export default LiveVideoContainer;

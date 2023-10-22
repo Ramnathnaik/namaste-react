@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
@@ -6,10 +6,11 @@ import { SEARCH_SUGGESTION_API, YOUTUBE_LOGO } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
 import { addSearchCache } from "../utils/searchSlice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [query, setQuery] = useState("");
   const [queryResults, setQueryResults] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -41,8 +42,9 @@ const Header = () => {
     // console.log(queryResults);
   };
 
-  const searchSelection = (selection) => {
+  const handleButtonClickSearch = () => {
     setShowSuggestions(false);
+    navigate("/results?search_query=" + query);
   };
 
   return (
@@ -65,7 +67,10 @@ const Header = () => {
             onChange={(e) => setQuery(e.target.value)}
             onFocus={() => setShowSuggestions(true)}
           />
-          <button className="px-4 py-2 border rounded-r-full border-t-gray-400 border-r-gray-400 border-b-gray-400 bg-gray-200">
+          <button
+            className="px-4 py-2 border rounded-r-full border-t-gray-400 border-r-gray-400 border-b-gray-400 bg-gray-200"
+            onClick={handleButtonClickSearch}
+          >
             <SearchIcon />
           </button>
         </div>
@@ -76,7 +81,7 @@ const Header = () => {
                 <Link key={result} to={"/results?search_query=" + result}>
                   <li
                     className="px-2 py-1 hover:bg-gray-100 cursor-pointer"
-                    onClick={() => searchSelection(result)}
+                    onClick={() => setShowSuggestions(false)}
                   >
                     <SearchIcon /> &nbsp;&nbsp;{result}
                   </li>

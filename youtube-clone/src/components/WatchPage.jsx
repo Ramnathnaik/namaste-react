@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { DEFAULT_CHANNEL_LOGO, VIDEO_DETAILS_API } from "../utils/constants";
 import CommentsList from "./CommentsList";
 import Recomendations from "./Recomendations";
+import LiveChatContainer from "./LiveChatContainer";
 
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
@@ -18,8 +19,17 @@ const WatchPage = () => {
         process.env.REACT_APP_YOUTUBE_API_KEY
     );
     const json = await data.json();
-    const { title, description, channelTitle } = json?.items?.[0]?.snippet;
-    setVideoDetails({ title, description, channelTitle });
+    const { title, description, channelTitle, liveBroadcastContent } =
+      json?.items?.[0]?.snippet;
+    const activeLiveChatId =
+      json?.items?.[0]?.liveStreamingDetails?.activeLiveChatId;
+    setVideoDetails({
+      title,
+      description,
+      channelTitle,
+      liveBroadcastContent,
+      activeLiveChatId,
+    });
   };
 
   useEffect(() => {
@@ -72,7 +82,13 @@ const WatchPage = () => {
         </div>
         <CommentsList videoId={videoId} />
       </div>
-      <div className="col-span-4 mt-2">
+      <div className="col-span-4 mt-2 mr-2">
+        {videoDetails.liveBroadcastContent === "live" &&
+          videoDetails.activeLiveChatId && (
+            <LiveChatContainer
+              activeLiveChatId={videoDetails.activeLiveChatId}
+            />
+          )}
         <Recomendations />
       </div>
     </>

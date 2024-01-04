@@ -1,5 +1,7 @@
 export const YOUTUBE_LOGO =
   "https://download.logo.wine/logo/YouTube/YouTube-Logo.wine.png";
+export const DARK_YOUTUBE_LOGO =
+  "https://cdn.gtricks.com/2021/04/how-to-enable-youtube-dark-mode-on-pc-and-android-ios-1280x720.jpg";
 export const YOUTUBE_API = "https://youtube.googleapis.com/youtube/v3";
 export const SEARCH_SUGGESTION_API =
   "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";

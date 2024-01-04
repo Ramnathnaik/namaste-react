@@ -37,7 +37,7 @@ const CategoryContainer = () => {
     );
 
   return (
-    <div className="col-span-10">
+    <div className="col-span-10 dark:bg-black dark:text-white">
       <ButtonList />
       <div className="flex flex-wrap">
         {videos.map((video) => (

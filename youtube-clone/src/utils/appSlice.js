@@ -5,6 +5,7 @@ const appSlice = createSlice({
   initialState: {
     menu: true,
     categoryId: -1,
+    darkMode: false,
   },
   reducers: {
     toggleMenu: (state) => {
@@ -19,10 +20,18 @@ const appSlice = createSlice({
     addCategoryId: (state, action) => {
       state.categoryId = action.payload;
     },
+    toggleDarkMode: (state) => {
+      state.darkMode = !state.darkMode;
+    },
   },
 });
 
-export const { toggleMenu, closeMenu, openMenu, addCategoryId } =
-  appSlice.actions;
+export const {
+  toggleMenu,
+  closeMenu,
+  openMenu,
+  addCategoryId,
+  toggleDarkMode,
+} = appSlice.actions;
 
 export default appSlice.reducer;

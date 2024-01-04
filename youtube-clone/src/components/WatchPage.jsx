@@ -63,8 +63,8 @@ const WatchPage = () => {
           <div
             className={
               !seeMore
-                ? "h-36 my-2 text-sm px-6 py-4 bg-slate-100 rounded-xl hover:bg-slate-200"
-                : "h-full my-2 text-sm px-6 py-4 bg-slate-100 rounded-xl"
+                ? "h-36 my-2 text-sm px-6 py-4 bg-slate-100 rounded-xl hover:bg-slate-200 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-900"
+                : "h-full my-2 text-sm px-6 py-4 bg-slate-100 rounded-xl dark:bg-slate-800 dark:text-white"
             }
           >
             <div className="h-3/4 overflow-hidden">

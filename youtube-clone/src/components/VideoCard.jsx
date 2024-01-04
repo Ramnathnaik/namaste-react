@@ -34,8 +34,8 @@ const VideoCard = ({ snippet, statistics }) => {
       </div>
       <div className="px-4 py-2">
         <p className="font-semibold line-clamp-2">{title}</p>
-        <p className="text-gray-500">{channelTitle}</p>
-        <p className="text-gray-500">{viewCount} views</p>
+        <p className="text-gray-500 dark:text-slate-300">{channelTitle}</p>
+        <p className="text-gray-500 dark:text-slate-300">{viewCount} views</p>
       </div>
     </div>
   );

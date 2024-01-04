@@ -16,7 +16,7 @@ const LiveContainer = () => {
   }, []);
 
   return (
-    <div className="col-span-10">
+    <div className="col-span-10 dark:bg-black dark:text-white">
       <ButtonList />
       <LiveVideoContainer />
     </div>
